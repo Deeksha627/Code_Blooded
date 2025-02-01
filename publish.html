@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author's Publishing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 { color: white; }
+
+        .home-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #149157;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .home-btn:hover { background-color: #127a48; }
+
+        .book-form {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .book-form input, .book-form textarea, .book-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .book-form button {
+            background-color: #149157;
+            color: white;
+            padding: 10px;
+            width: 48%;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .book-list { margin-top: 20px; }
+
+        .book-card {
+            background-color: #222;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .book-card img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .book-card button {
+            width: 100px;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #149157;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="author_home_page.html.html" class="home-btn">Back to Home Page</a>
+    <h1>Author's Publishing Page</h1>
+
+    <div class="book-form">
+        <h2>Publish a New Book</h2>
+        <input type="text" id="bookTitle" placeholder="Book Title" required>
+        <textarea id="bookDescription" placeholder="Book Description" rows="4" required></textarea>
+        <select id="bookGenre">
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Biography">Biography</option>
+            <option value="Self-Help">Self-Help</option>
+            <option value="Romance">Romance</option>
+        </select>
+        <input type="file" id="bookFile" accept=".pdf">
+        <input type="file" id="bookCover" accept="image/*">
+        
+        <div class="button-container">
+            <button onclick="saveBook(false)">Save as Draft</button>
+            <button onclick="saveBook(true)">Publish</button>
+        </div>
+    </div>
+
+    <h2>Your Books</h2>
+    <div id="bookList" class="book-list"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadBooks);
+
+        function saveBook(isPublished) {
+            const title = document.getElementById('bookTitle').value;
+            const description = document.getElementById('bookDescription').value;
+            const genre = document.getElementById('bookGenre').value;
+            const fileInput = document.getElementById('bookFile');
+            const coverInput = document.getElementById('bookCover');
+
+            if (!title || !description || fileInput.files.length === 0 || coverInput.files.length === 0) {
+                alert("Please fill in all fields and upload both a book file and a cover image!");
+                return;
+            }
+
+            if (!fileInput.files[0].name.endsWith(".pdf")) {
+                alert("Only PDF files are allowed!");
+                return;
+            }
+
+            const reader = new FileReader();
+            const coverReader = new FileReader();
+
+            reader.onload = function (event) {
+                coverReader.onload = function (coverEvent) {
+                    const timestamp = new Date().getTime();
+                    const publishedDate = isPublished ? "Published" : "Draft";
+
+                    let books = JSON.parse(localStorage.getItem('publishedBooks')) || [];
+                    books.push({ title, description, genre, fileData: event.target.result, coverImage: coverEvent.target.result, publishedDate, timestamp, isPublished });
+                    localStorage.setItem('publishedBooks', JSON.stringify(books));
+                    loadBooks();
+                };
+                coverReader.readAsDataURL(coverInput.files[0]);
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+
+        function loadBooks() {
+            let books = JSON.parse(localStorage.getItem('publishedBooks')) || [];
+            books.sort((a, b) => b.timestamp - a.timestamp);
+
+            const bookListDiv = document.getElementById('bookList');
+            bookListDiv.innerHTML = "";
+
+            books.forEach((book, index) => {
+                const bookCard = document.createElement('div');
+                bookCard.classList.add('book-card');
+                bookCard.innerHTML = `
+                    <img src="${book.coverImage}" alt="Book Cover">
+                    <h3>${book.title}</h3>
+                    <p>${book.description}</p>
+                    <p><span>Genre:</span> ${book.genre}</p>
+                    <p><span>Status:</span> ${book.publishedDate}</p>
+                    <button onclick="viewBook('${book.fileData}')">View</button>
+                `;
+                bookListDiv.appendChild(bookCard);
+            });
+        }
+
+        function viewBook(pdfData) {
+            window.open(pdfData, "_blank");
+        }
+    </script>
+</body>
+</html>

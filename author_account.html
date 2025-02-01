@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Author/Publisher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .container {
+            background-color: grey;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            color: white;
+            position: relative;
+        }
+        .inner-container {
+            background-color: lightgrey;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: black;
+            color: white;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            width: 100%;
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .inner-container:hover {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner-container">
+            <h2>Create Account</h2>
+            <form id="createAccountForm" onsubmit="redirectToLogin(event)">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required onkeyup="checkPasswordStrength()">
+                <span id="passwordStrength" class="error"></span>
+                
+                <select id="role" onchange="toggleFields()">
+                    <option value="author">Author</option>
+                    <option value="publisher">Publisher</option>
+                </select>
+                
+                <input type="text" id="booksPublished" placeholder="Number of Books Published" style="display:none;">
+                <input type="text" id="publishingHouse" placeholder="Publishing House Name" style="display:none;">
+                
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function checkPasswordStrength() {
+            let password = document.getElementById('password').value;
+            let strengthMessage = document.getElementById('passwordStrength');
+            if (password.length < 6) {
+                strengthMessage.textContent = 'Weak password';
+            } else if (password.length < 10) {
+                strengthMessage.textContent = 'Medium strength';
+            } else {
+                strengthMessage.textContent = 'Strong password';
+            }
+        }
+
+        function toggleFields() {
+            let role = document.getElementById('role').value;
+            document.getElementById('booksPublished').style.display = role === 'author' ? 'block' : 'none';
+            document.getElementById('publishingHouse').style.display = role === 'publisher' ? 'block' : 'none';
+        }
+
+        function redirectToLogin(event) {
+            event.preventDefault();
+            window.location.href = 'login_final.html';
+        }
+    </script>
+</body>
+</html>

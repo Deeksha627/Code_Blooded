@@ -76,11 +76,29 @@
             font-size: 12px;
             margin-top: 5px;
         }
+        .home-button {
+            margin: 20px;
+        }
+        .home-button a {
+            padding: 10px 20px;
+            background-color: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .home-button a:hover {
+            background-color: #444;
+        }
     </style>
 </head>
 <body>
 
 <h1>Video Lectures</h1>
+
+<div class="home-button">
+    <a href="front_page.html">Back to Home</a>
+</div>
+
 
 <div class="search-container">
     <input type="text" id="search" placeholder="Search by section..." oninput="searchVideos()">
@@ -496,10 +514,6 @@
             }
         });
     }
-        function goHome() {
-            window.location.href = "front_page.html"; // Change this if the homepage has a different URL
-        }
-    </script>
 
 </script>
 
