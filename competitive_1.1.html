@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Preparation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            border-radius: 5px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-home {
+            margin-top: 20px;
+        }
+
+        .back-home button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-home button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Exam Preparation</h1>
+    </header>
+
+    <main>
+        <div class="card-container">
+            <div class="card" id="gate">
+                <h2>GATE</h2>
+                <p>Graduate Aptitude Test in Engineering</p>
+                <button onclick="showDetails('gate')">Learn More</button>
+                <button onclick="downloadPYQs('gate')">Select Branch</button>
+            </div>
+
+            <div class="card" id="iit-jee">
+                <h2>IIT-JEE</h2>
+                <p>Joint Entrance Examination</p>
+                <button onclick="showDetails('iit-jee')">Learn More</button>
+                <button onclick="downloadPYQs('iit-jee')">Download PYQs</button>
+            </div>
+
+            <div class="card" id="neet">
+                <h2>NEET</h2>
+                <p>National Eligibility cum Entrance Test</p>
+                <button onclick="showDetails('neet')">Learn More</button>
+                <button onclick="downloadPYQs('neet')">Download PYQs</button>
+            </div>
+
+            <div class="card" id="boards">
+                <h2>Boards</h2>
+                <p>Class 10th and 12th Board Exams</p>
+                <button onclick="showDetails('boards')">Learn More</button>
+                <button onclick="downloadPYQs('boards')">Download PYQs</button>
+            </div>
+        </div>
+
+        <div class="back-home">
+            <button onclick="goHome()">Back to Home</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Exam Preparation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showDetails(exam) {
+            alert("More details about " + exam);
+        }
+
+        function downloadPYQs(exam) {
+            alert("Downloading PYQs for " + exam);
+        }
+
+        function goHome() {
+            window.location.href = "front_page.html"; // Change this if the homepage has a different URL
+        }
+    </script>
+
+</body>
+</html>
