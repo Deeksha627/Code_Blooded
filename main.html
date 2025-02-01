@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Preparation</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Exam Preparation</h1>
+    </header>
+
+    <main>
+      <div class="card-container">
+        <div class="card" id="gate">
+          <h2>GATE</h2>
+          <p>Graduate Aptitude Test in Engineering</p>
+          <button onclick="showDetails('gate')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('gate')">
+            Download PYQs
+          </button>
+        </div>
+
+        <div class="card" id="iit-jee">
+          <h2>IIT-JEE</h2>
+          <p>Joint Entrance Examination</p>
+          <button onclick="showDetails('iit-jee')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('iit-jee')">
+            Download PYQs
+          </button>
+        </div>
+
+        <div class="card" id="neet">
+          <h2>NEET</h2>
+          <p>National Eligibility cum Entrance Test</p>
+          <button onclick="showDetails('neet')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('neet')">
+            Download PYQs
+          </button>
+        </div>
+
+        <div class="card" id="boards">
+          <h2>Boards</h2>
+          <p>Class 10th and 12th Board Exams</p>
+          <button onclick="showDetails('boards')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('boards')">
+            Download PYQs
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Exam Preparation. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
