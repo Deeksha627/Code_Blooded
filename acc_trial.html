@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        /* Your styles */
+    </style>
+</head>
+<body>
+
+    <div class="create-account-container">
+        <h2>Create Account</h2>
+        <form id="createAccountForm" onsubmit="return createAccount(event)">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <button class="back-to-login" onclick="window.location.href='login_page_1.1.html'">Back to Login Page</button>
+    </div>
+
+    <script>
+        // Function to create an account and store it in localStorage
+        function createAccount(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate password match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Store the user data in localStorage
+            const user = { username, email, password };
+            localStorage.setItem('userData', JSON.stringify(user));
+
+            alert('Account created successfully!');
+            window.location.href = 'login_page_1.1.html';  // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>

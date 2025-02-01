@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .create-account-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .create-account-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .create-account-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .create-account-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .create-account-container button:hover {
+            background-color: #45a049;
+        }
+
+        .create-account-container .back-to-login {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .create-account-container .back-to-login a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .weak-password-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .password-strength {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .weak {
+            color: red;
+        }
+
+        .medium {
+            color: orange;
+        }
+
+        .strong {
+            color: green;
+        }
+
+        .show-password {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .show-password input {
+            width: auto;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="create-account-container">
+        <h2>Create Account</h2>
+        <form id="createAccountForm" onsubmit="return createAccount(event)">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required oninput="checkPasswordStrength()">
+            <div class="show-password">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                <label for="showPassword">Show Password</label>
+            </div>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            
+            <button type="submit">Create Account</button>
+        </form>
+
+        <!-- Back to Login Page button -->
+        <button class="back-to-login" onclick="window.location.href='login_page_1.1.html'">Back to Login Page</button>
+
+        <div id="errorMessage" class="error-message" style="display:none;"></div>
+        <div id="passwordStrengthMessage" class="password-strength" style="display:none;"></div>
+    </div>
+
+    <script>
+        // Simulate a users database
+        const users = [];
+
+        // Password strength regex pattern
+        const passwordStrengthPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        // Function to create account
+        function createAccount(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Clear previous error messages
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('passwordStrengthMessage').style.display = 'none';
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Email format validation
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('errorMessage').textContent = "Invalid email format!";
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                document.getElementById('errorMessage').textContent = "Passwords do not match!";
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Check if password is strong
+            const passwordStrengthFeedback = getPasswordStrengthFeedback(password);
+            if (passwordStrengthFeedback.message !== 'Strong password') {
+                document.getElementById('passwordStrengthMessage').style.display = 'block';
+                document.getElementById('passwordStrengthMessage').textContent = passwordStrengthFeedback.message;
+                document.getElementById('passwordStrengthMessage').classList.remove('medium', 'strong');
+                document.getElementById('passwordStrengthMessage').classList.add(passwordStrengthFeedback.class);
+                return;
+            } else {
+                document.getElementById('passwordStrengthMessage').style.display = 'none';
+            }
+
+            // Check if email already exists
+            const existingUser = users.find(user => user.email === email);
+            if (existingUser) {
+                document.getElementById('errorMessage').textContent = "Email already in use!";
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Simulate account creation (storing user data in the array)
+            const newUser = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            users.push(newUser);
+
+            // Clear form fields
+            document.getElementById('createAccountForm').reset();
+
+            // Store user data in localStorage
+            localStorage.setItem('userData', JSON.stringify(user));
+
+            
+            // Success message and redirect to login page
+            alert('Account created successfully!');
+            window.location.href = 'login_page_1.1.html'; // Redirect to login page
+        }
+
+        // Function to check password strength as user types
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+
+            const strengthFeedback = getPasswordStrengthFeedback(password);
+
+            document.getElementById('passwordStrengthMessage').style.display = 'block';
+            document.getElementById('passwordStrengthMessage').textContent = strengthFeedback.message;
+            document.getElementById('passwordStrengthMessage').classList.remove('weak', 'medium', 'strong');
+            document.getElementById('passwordStrengthMessage').classList.add(strengthFeedback.class);
+        }
+
+        // Function to get password strength feedback
+        function getPasswordStrengthFeedback(password) {
+            let message = '';
+            let strengthClass = '';
+
+            if (password.length < 6) {
+                message = 'Weak password: Password is too short.';
+                strengthClass = 'weak';
+            } else if (password.length < 10) {
+                message = 'Medium strength password: Consider adding special characters or numbers.';
+                strengthClass = 'medium';
+            } else {
+                message = 'Strong password';
+                strengthClass = 'strong';
+            }
+
+            // Add specific feedback for missing characters
+            if (!/[A-Z]/.test(password)) {
+                message += ' Missing uppercase letter.';
+                strengthClass = 'weak';
+            }
+            if (!/[a-z]/.test(password)) {
+                message += ' Missing lowercase letter.';
+                strengthClass = 'weak';
+            }
+            if (!/\d/.test(password)) {
+                message += ' Missing number.';
+                strengthClass = 'weak';
+            }
+            if (!/[@$!%*?&]/.test(password)) {
+                message += ' Missing special character.';
+                strengthClass = 'weak';
+            }
+
+            return { message, class: strengthClass };
+        }
+
+        // Function to toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirmPassword');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text'; // Show password
+                confirmPasswordField.type = 'text'; // Show confirm password
+            } else {
+                passwordField.type = 'password'; // Hide password
+                confirmPasswordField.type = 'password'; // Hide confirm password
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Your styles */
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div class="show-password">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                <label for="showPassword">Show Password</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <span class="forgot-password"><a href="login_trial.html">Forgot Password?</a></span>
+        <span class="create-account">Don't have an account? <a href="acc_trial.html">Create Account</a></span>
+        <span class="create-account-author">To create account as an author/publisher <a href="#">Click here</a></span>
+    </div>
+
+    <script>
+        // Function to validate the login form
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Get user data from localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+
+            // If user data exists in localStorage
+            if (userData) {
+                // Check if entered credentials match stored user data
+                if (userData.username === username && userData.password === password) {
+                    alert('Login successful!');
+                    window.location.href = 'front_page.html';  // Redirect to front page
+                } else {
+                    alert('Invalid username or password!');
+                }
+            } else {
+                alert('No account found. Please sign up first.');
+            }
+        }
+
+        // Function to toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text'; // Show password
+            } else {
+                passwordField.type = 'password'; // Hide password
+            }
+        }
+    </script>
+
+</body>
+</html>

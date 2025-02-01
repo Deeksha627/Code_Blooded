@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white; /* White text color */
+        }
+
+        .login-container {
+            background-color: #333; /* Grey background for the form */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white; /* White color for the heading */
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc; /* Grey border */
+            border-radius: 5px;
+            background-color: #444; /* Dark grey input background */
+            color: white; /* White text color in inputs */
+            transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .login-container input:hover {
+            border: 1px solid #4CAF50; /* Green border on hover */
+            background-color: #555; /* Slightly lighter grey on hover */
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth background transition */
+        }
+
+        .login-container button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .login-container .forgot-password,
+        .login-container .create-account,
+        .login-container .create-account-as-a-author {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .login-container .forgot-password a,
+        .login-container .create-account a,
+        .login-container .create-account-as-a-author a {
+            text-decoration: none;
+            color: #4CAF50; /* Green color for links */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        .login-container .forgot-password a:hover,
+        .login-container .create-account a:hover,
+        .login-container .create-account-as-a-author a:hover {
+            text-decoration: underline;
+            color: #45a049; /* Darker green on hover for links */
+        }
+
+        .show-password {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .show-password input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <input type="text" id="username" placeholder="Username" required aria-label="Enter your username">
+            <input type="password" id="password" placeholder="Password" required aria-label="Enter your password">
+            <div class="show-password">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                <label for="showPassword">Show Password</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <span class="forgot-password"><a href="login_page_1.2.html">Forgot Password?</a></span>
+        <span class="create-account">Don't have an account? <a href="account_page.html">Create Account</a></span>
+        <span class="create-account-as-a-author">To create an account as an author/publisher <a href="#">Click here</a></span>
+
+        <!-- Error message -->
+        <div id="errorMessage" class="error-message">Invalid username or password</div>
+    </div>
+
+    <script>
+        // Function to validate the login form
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Clear previous error messages
+            errorMessage.style.display = 'none';
+
+            // Get user data from localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+
+            if (!userData) {
+                alert('No account found. Please sign up first.');
+                return;
+            }
+
+            // Check if entered credentials match stored user data
+            if (userData.username === username && userData.password === password) {
+                // Login successful, redirect to front page
+                alert('Login successful!');
+                window.location.href = 'front_page.html';  // Redirect to front page
+            } else {
+                // Invalid credentials
+                errorMessage.textContent = 'Invalid username or password';
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        // Function to toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text'; // Show password
+            } else {
+                passwordField.type = 'password'; // Hide password
+            }
+        }
+    </script>
+
+</body>
+</html>

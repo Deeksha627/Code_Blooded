@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .forgot-password-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .forgot-password-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .forgot-password-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .forgot-password-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .forgot-password-container button:hover {
+            background-color: #45a049;
+        }
+
+        .forgot-password-container .back-to-login {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password-container .back-to-login a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="forgot-password-container">
+        <h2>Forgot Password</h2>
+        <form id="forgotPasswordForm" onsubmit="return verifyEmail(event)">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Send Code</button>
+        </form>
+        <div id="verificationDiv" style="display:none;">
+            <input type="text" id="verificationCode" placeholder="Enter verification code" required>
+            <button onclick="verifyCode()">Verify Code</button>
+        </div>
+        <span class="back-to-login"><a href="login_page_1.1.html">Back to Login</a></span>
+        <div id="errorMessage" class="error-message" style="display:none;"></div>
+    </div>
+
+    <script>
+        const users = [
+            { username: "user1", password: "password123", email: "user1@example.com" },
+            { username: "user2", password: "password456", email: "user2@example.com" },
+        ];
+
+        let verificationCode = "";
+        let currentUser = null;
+
+        // Function to simulate sending a verification code
+        function verifyEmail(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            currentUser = users.find(user => user.email === email);
+
+            if (!currentUser) {
+                // Display invalid email message
+                document.getElementById('errorMessage').textContent = "Invalid email address!";
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Simulate sending a code
+            verificationCode = Math.floor(100000 + Math.random() * 900000); // 6-digit code
+            alert('Verification code sent: ' + verificationCode); // In real scenario, send via email
+
+            // Hide error message if email is valid
+            document.getElementById('errorMessage').style.display = 'none';
+
+            // Show the verification input
+            document.getElementById('verificationDiv').style.display = 'block';
+        }
+
+        // Function to verify the code
+        function verifyCode() {
+            const enteredCode = document.getElementById('verificationCode').value;
+
+            if (enteredCode === verificationCode.toString()) {
+                const newPassword = prompt('Enter your new password:');
+                if (newPassword) {
+                    currentUser.password = newPassword;
+                    alert('Password successfully changed!');
+                    window.location.href = "login_page_1.1.html"; // Redirect to login page
+                }
+            } else {
+                alert('Invalid verification code!');
+            }
+        }
+    </script>
+
+</body>
+</html>
