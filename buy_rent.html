@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Simple Frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Search Bar Styling */
+        .search-bar {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .search-bar input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .search-bar button {
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #444;
+        }
+
+        nav {
+            background-color: #444;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Books Section Styling */
+        .books-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .book-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+        }
+        .book-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .book-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .book-card p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .book-card .price-buy,
+        .book-card .price-rent {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .book-card .price-buy {
+            color: green;
+        }
+        .book-card .price-rent {
+            color: #008CBA;
+        }
+        .book-card button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .book-card button:hover {
+            background-color: #444;
+        }
+        .book-card .rent-button {
+            background-color: #008CBA;
+            margin-top: 10px;
+        }
+        .book-card .rent-button:hover {
+            background-color: #006F8C;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+        }
+        .modal-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .modal-footer {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .close {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: darkgreen;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book Wzard</h1>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for books...">
+            <button onclick="searchBooks()">Search</button>
+        </div>
+    </header>
+
+
+    <div class="container">
+        
+        
+
+        <!-- Books Section -->
+        <h2>Books</h2>
+        <div class="books-section">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <img src="c:\Users\My PC\Desktop\College\Hackathon\Feb 2025\dc5a7f6b-fac8-433b-a722-1c5b5516e09d.jfif" alt="Book 1">
+                <h3>Book Title 1</h3>
+                <p>Author: John Doe</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 19.99 - Buy</p>
+                <p class="price-rent">Rs. 4.99 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 2">
+                <h3>Book Title 2</h3>
+                <p>Author: Jane Smith</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 25.99 - Buy</p>
+                <p class="price-rent">Rs. 5.99 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 3">
+                <h3>Book Title 3</h3>
+                <p>Author: Mark Allen</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 29.99 - Buy</p>
+                <p class="price-rent">Rs. 6.99 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 4">
+                <h3>Book Title 4</h3>
+                <p>Author: Sarah Lee</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 18.99 - Buy</p>
+                <p class="price-rent">Rs. 4.49 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 5">
+                <h3>Book Title 5</h3>
+                <p>Author: David Wilson</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 22.99 - Buy</p>
+                <p class="price-rent">Rs. 5.49 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 6">
+                <h3>Book Title 6</h3>
+                <p>Author: Emily Brown</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 21.99 - Buy</p>
+                <p class="price-rent">Rs. 5.19 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 7">
+                <h3>Book Title 7</h3>
+                <p>Author: James Moore</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 24.99 - Buy</p>
+                <p class="price-rent">Rs. 5.79 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 8">
+                <h3>Book Title 8</h3>
+                <p>Author: Anna Scott</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 19.49 - Buy</p>
+                <p class="price-rent">Rs. 4.99 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 9">
+                <h3>Book Title 9</h3>
+                <p>Author: Olivia Green</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 17.99 - Buy</p>
+                <p class="price-rent">Rs. 4.39 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+
+            <!-- Book 10 -->
+            <div class="book-card">
+                <img src="https://via.placeholder.com/200x250" alt="Book 10">
+                <h3>Book Title 10</h3>
+                <p>Author: Charles Davis</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="price-buy">Rs. 26.49 - Buy</p>
+                <p class="price-rent">Rs. 6.29 - Rent</p>
+                <button onclick="openModal('buy')">Buy</button>
+                <button class="rent-button" onclick="openModal('rent')">Rent</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+    <!-- Modal for Phone Number Entry -->
+    <div id="phoneModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Enter Your Phone Number</h2>
+            </div>
+            <p>Please enter your phone number to complete the purchase:</p>
+            <input type="text" id="phoneNumber" placeholder="Enter phone number" />
+            <div class="modal-footer">
+                <button class="close" onclick="closeModal()">Cancel</button>
+                <button class="submit-btn" onclick="sendMessage()">Send Message</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open the modal when a "Buy" or "Rent" button is clicked
+        function openModal(type) {
+            document.getElementById('phoneModal').style.display = 'block';
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById('phoneModal').style.display = 'none';
+        }
+
+        // Send WhatsApp message
+        function sendMessage() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            if (phoneNumber) {
+                const message = "Hello, I would like to rent the book. Please provide more details.";
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+                closeModal();
+            } else {
+                alert('Please enter a valid phone number.');
+            }
+        }
+
+        // Function to handle search functionality (stub for now)
+        function searchBooks() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const books = document.querySelectorAll('.book-card');
+            books.forEach(book => {
+                const bookTitle = book.querySelector('h3').textContent.toLowerCase();
+                if (bookTitle.includes(searchQuery)) {
+                    book.style.display = 'block'; // Show the book if it matches the search query
+                } else {
+                    book.style.display = 'none'; // Hide the book if it doesn't match
+                }
+            });
+        }
+    </script>
+</body>
+</html>

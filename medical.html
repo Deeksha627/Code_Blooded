@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEET & AIIMS Preparation</title>
+    <link rel="stylesheet" href="medical.css" />
+  </head>
+  <body>
+    <header>
+      <h1>NEET & AIIMS Preparation</h1>
+      <p>Explore resources for NEET and AIIMS exams.</p>
+    </header>
+
+    <main>
+      <div class="card-container">
+        <!-- Card for NEET -->
+        <div class="card" id="neet">
+          <h2>NEET</h2>
+          <p>National Eligibility cum Entrance Test for medical admissions.</p>
+          <button onclick="showDetails('neet')">Learn More</button>
+          <button class="select-btn" onclick="selectSubject('neet')">
+            <a href="http://127.0.0.1:3000/neet.html"> Select Subject</a>
+          </button>
+        </div>
+
+        <!-- Card for AIIMS -->
+        <div class="card" id="aiims">
+          <h2>AIIMS</h2>
+          <p>All India Institute of Medical Sciences entrance exam.</p>
+          <button onclick="showDetails('aiims')">Learn More</button>
+          <button class="select-btn" onclick="selectSubject('aiims')">
+            Select Subject
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NEET & AIIMS Preparation. All rights reserved.</p>
+    </footer>
+
+    <script src="medical.js"></script>
+  </body>
+</html>

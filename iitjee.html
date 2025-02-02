@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JEE Preparation</title>
+    <link rel="stylesheet" href="iitjee.css" />
+  </head>
+  <body>
+    <header>
+      <h1>JEE Preparation</h1>
+      <p>Explore resources for JEE Main and JEE Advanced.</p>
+    </header>
+
+    <main>
+      <div class="card-container">
+        <!-- Card for JEE Main -->
+        <div class="card" id="jee-main">
+          <h2>JEE Main</h2>
+          <p>
+            Joint Entrance Examination (Main) for engineering admissions in
+            NITs, IIITs, and other colleges.
+          </p>
+          <button onclick="showDetails('jee-main')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('jee-main')">
+            Select year
+          </button>
+        </div>
+
+        <!-- Card for JEE Advanced -->
+        <div class="card" id="jee-advanced">
+          <h2>JEE Advanced</h2>
+          <p>
+            Joint Entrance Examination (Advanced) for admission to IITs and
+            other top engineering institutes.
+          </p>
+          <button onclick="showDetails('jee-advanced')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('jee-advanced')">
+            Select year
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 JEE Preparation. All rights reserved.</p>
+    </footer>
+
+    <script src="iitjee.js"></script>
+  </body>
+</html>

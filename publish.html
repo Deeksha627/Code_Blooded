@@ -67,6 +67,11 @@
             font-size: 16px;
         }
 
+<<<<<<< HEAD
+=======
+        .book-form button:hover { background-color: #127a48; }
+
+>>>>>>> 516c143 (last commit)
         .book-list { margin-top: 20px; }
 
         .book-card {
@@ -96,11 +101,28 @@
             background-color: #149157;
             color: white;
         }
+<<<<<<< HEAD
+=======
+
+        .book-card button:hover { background-color: #127a48; }
+
+        .delete-btn {
+            background-color: #d9534f !important;
+        }
+
+        .delete-btn:hover {
+            background-color: #c9302c !important;
+        }
+>>>>>>> 516c143 (last commit)
     </style>
 </head>
 <body>
 
+<<<<<<< HEAD
     <a href="author_home_page.html.html" class="home-btn">Back to Home Page</a>
+=======
+    <a href="author_home_page.html" class="home-btn">Back to Home Page</a>
+>>>>>>> 516c143 (last commit)
     <h1>Author's Publishing Page</h1>
 
     <div class="book-form">
@@ -117,8 +139,15 @@
             <option value="Self-Help">Self-Help</option>
             <option value="Romance">Romance</option>
         </select>
+<<<<<<< HEAD
         <input type="file" id="bookFile" accept=".pdf">
         <input type="file" id="bookCover" accept="image/*">
+=======
+        Add book
+        <input type="file" id="bookFile" accept=".pdf"> 
+        Add book cover
+        <input type="file" id="bookCover" accept="image/*"> 
+>>>>>>> 516c143 (last commit)
         
         <div class="button-container">
             <button onclick="saveBook(false)">Save as Draft</button>
@@ -181,16 +210,42 @@
                     <img src="${book.coverImage}" alt="Book Cover">
                     <h3>${book.title}</h3>
                     <p>${book.description}</p>
+<<<<<<< HEAD
                     <p><span>Genre:</span> ${book.genre}</p>
                     <p><span>Status:</span> ${book.publishedDate}</p>
                     <button onclick="viewBook('${book.fileData}')">View</button>
+=======
+                    <p><strong>Genre:</strong> ${book.genre}</p>
+                    <p><strong>Status:</strong> ${book.publishedDate}</p>
+                    <button onclick="viewBook('${book.fileData}')">View</button>
+                    <button class="delete-btn" onclick="deleteBook(${index})">Delete</button>
+>>>>>>> 516c143 (last commit)
                 `;
                 bookListDiv.appendChild(bookCard);
             });
         }
 
+<<<<<<< HEAD
         function viewBook(pdfData) {
             window.open(pdfData, "_blank");
+=======
+        function deleteBook(index) {
+            let books = JSON.parse(localStorage.getItem('publishedBooks')) || [];
+            if (confirm("Are you sure you want to delete this book?")) {
+                books.splice(index, 1);
+                localStorage.setItem('publishedBooks', JSON.stringify(books));
+                loadBooks();
+            }
+        }
+
+        function viewBook(pdfData) {
+            const newWindow = window.open();
+            if (newWindow) {
+                newWindow.document.write('<iframe width="100%" height="100%" style="border:none;" src="' + pdfData + '"></iframe>');
+            } else {
+                alert("Popup blocked! Please allow popups to view the book.");
+            }
+>>>>>>> 516c143 (last commit)
         }
     </script>
 </body>

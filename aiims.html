@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEET Subjects</title>
+    <link rel="stylesheet" href="aiims.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AIIMS Subjects</h1>
+      <p>Explore resources for Physics, Chemistry, and Biology.</p>
+    </header>
+
+    <main>
+      <div class="card-container">
+        <!-- Card for Physics -->
+        <div class="card" id="physics">
+          <h2>Physics</h2>
+          <p>Explore concepts, formulas, and PYQs for Physics.</p>
+          <button onclick="showDetails('physics')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('physics')">
+            Download Year-wise PYQs
+          </button>
+        </div>
+
+        <!-- Card for Chemistry -->
+        <div class="card" id="chemistry">
+          <h2>Chemistry</h2>
+          <p>Explore organic, inorganic, and physical chemistry PYQs.</p>
+          <button onclick="showDetails('chemistry')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('chemistry')">
+            Download Year-wise PYQs
+          </button>
+        </div>
+
+        <!-- Card for Biology -->
+        <div class="card" id="biology">
+          <h2>Biology</h2>
+          <p>Explore botany and zoology PYQs for NEET.</p>
+          <button onclick="showDetails('biology')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('biology')">
+            Download Year-wise PYQs
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NEET Preparation. All rights reserved.</p>
+    </footer>
+
+    <script src="aiims.js"></script>
+  </body>
+</html>

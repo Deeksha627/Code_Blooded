@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -518,4 +519,1013 @@
 </script>
 
 </body>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Lectures</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        text-align: center;
+        color: white;
+      }
+      h1 {
+        padding: 20px;
+        background-color: #222;
+        color: white;
+        margin: 0;
+      }
+      .search-container {
+        margin: 20px;
+      }
+      .search-container input {
+        padding: 10px;
+        width: 80%;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+      }
+      .subjects {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      .subject {
+        background: #333;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .subject h3 {
+        margin: 0 0 10px 0;
+        color: white;
+      }
+      .video-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      .video-item {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #444;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-align: center;
+        color: white;
+      }
+      .video-item:hover {
+        background: #555;
+      }
+      .video-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+      }
+      .video-details {
+        font-size: 12px;
+        margin-top: 5px;
+      }
+      .home-button {
+        margin: 20px;
+      }
+      .home-button a {
+        padding: 10px 20px;
+        background-color: #1f8e4f;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .home-button a:hover {
+        background-color: #1f8e4f;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Video Lectures</h1>
+
+    <div class="home-button">
+      <a href="front_page.html">Back to Home</a>
+    </div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search by section..."
+        oninput="searchVideos()"
+      />
+    </div>
+
+    <div class="subjects">
+      <div class="subject" data-section="jee-chemistry">
+        <h3>JEE Chemistry</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 2"
+          >
+            <img
+              src="c:\Users\My PC\Downloads\WhatsApp Image 2025-02-02 at 6.30.25 AM.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="jee-maths">
+        <h3>JEE Maths</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="c:\Users\My PC\Downloads\WhatsApp Image 2025-02-02 at 6.30.25 AM.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('ttps://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('ttps://www.youtube.com/live/NNK3IBHh_GY?si=JVtzoadwjBwhxqKJ')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="jee-phy">
+        <h3>JEE Phy</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="c:\Users\My PC\Downloads\WhatsApp Image 2025-02-02 at 6.30.25 AM.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="neet-bio">
+        <h3>NEET Biology</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="c:\Users\My PC\Downloads\WhatsApp Image 2025-02-02 at 6.30.25 AM.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="neet-phy">
+        <h3>NEET Phy</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="c:\Users\My PC\Downloads\WhatsApp Image 2025-02-02 at 6.30.25 AM.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="neet-hemistry">
+        <h3>NEET Chemistry</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="gate-cse-and-da">
+        <h3>GATE CSE and DA</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="gate-eee-and-ece">
+        <h3>GATE EEE and ECE</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="gate-mech-and-aerospace">
+        <h3>GATE Mech and Aerospace</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="gate-civil">
+        <h3>Civil</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="cbse-boards-class12th">
+        <h3>CBSE Boards Class12th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="MP-boards-class12th">
+        <h3>MP Boards Class12th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="hss-boards-class12th">
+        <h3>HSS Boards Class12th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="gshseb-boards-class12th">
+        <h3>GSHSEB Boards Class12th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="cbse-boards-class10th">
+        <h3>CBSE Boards Class10th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="mp-boards-class10th">
+        <h3>MP Boards Class10th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="hss-boards-class10th">
+        <h3>HSS Boards Class10th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject" data-section="gshseb-boards-class10th">
+        <h3>GSHSEB Boards Class10th</h3>
+        <div class="video-list">
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 1</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 2</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 3</h4></div>
+          </div>
+          <div
+            class="video-item"
+            onclick="playVideo('https://youtu.be/UOOLYhW7Ew4?si=Ss0gq-l6EomMTQN-')"
+            data-title="Lec - 1"
+          >
+            <img
+              src="C:\Users\admin\Downloads\WhatsApp Image 2025-02-02 at 08.38.54.jpeg"
+              alt="Video Thumbnail"
+            />
+            <div class="video-details"><h4>Lec - 4</h4></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function playVideo(videoId) {
+        window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+      }
+
+      function searchVideos() {
+        let query = document.getElementById("search").value.toLowerCase();
+        let subjects = document.querySelectorAll(".subject");
+
+        subjects.forEach(function (subject) {
+          let section = subject.getAttribute("data-section").toLowerCase();
+          if (section.includes(query)) {
+            subject.style.display = "block";
+          } else {
+            subject.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+>>>>>>> 516c143 (last commit)
 </html>

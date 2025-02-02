@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,4 +95,109 @@
         </a>
     </div>
 </body>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Wizard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #121212; /* Dark background */
+        color: white;
+        padding: 20px;
+      }
+      .container {
+        width: 80%;
+        background: #1e1e1e; /* Dark grey */
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        flex-wrap: wrap; /* Ensures responsiveness */
+      }
+      .section {
+        width: 30%;
+        padding: 20px;
+        border: 1px solid #444;
+        border-radius: 5px;
+        background: #2c2c2c; /* Grey background */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+      }
+      .section h2 {
+        margin-bottom: 5px;
+        color: #ffffff;
+      }
+      .section p {
+        color: #bbbbbb;
+      }
+      /* Hover Effect */
+      .section:hover {
+        background: #444;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 900px) {
+        .section {
+          width: 45%; /* Adjust size for tablets */
+        }
+      }
+
+      @media (max-width: 600px) {
+        .section {
+          width: 100%; /* Stack vertically on small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Book Wizard!</h1>
+    <div class="container">
+      <a href="main.html" class="section">
+        <h2>Competitive Exam</h2>
+        <p>
+          Find study materials, mock tests, and reference books for various
+          competitive exams.
+        </p>
+      </a>
+      <a href="audio_page.html" class="section">
+        <h2>Casual Read</h2>
+        <p>
+          Enjoy fiction, non-fiction, short stories, and more for leisure
+          reading.
+        </p>
+      </a>
+      <a href="lec_1.html" class="section">
+        <h2>Video Lectures</h2>
+        <p>Clear your doubts using video lectures and one-on-one mentoring.</p>
+      </a>
+      <a
+        href="https://archive.org/details/audio_bookspoetry?and%5B%5D=mediatype%3A%22audio%22"
+        class="section"
+      >
+        <h2>Audio Books</h2>
+        <p>Clear your doubts using video lectures and one-on-one mentoring.</p>
+      </a>
+      <a href="buy_rent.html" class="section">
+        <h2>Buy and Rent Books</h2>
+        <p>Clear your doubts using video lectures and one-on-one mentoring.</p>
+      </a>
+    </div>
+  </body>
+>>>>>>> 516c143 (last commit)
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CBSE & GSEB Resources</title>
+    <link rel="stylesheet" href="boards.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CBSE & GSEB Resources</h1>
+      <p>Explore resources for CBSE and GSEB boards.</p>
+    </header>
+
+    <main>
+      <div class="card-container">
+        <!-- Card for CBSE -->
+        <div class="card" id="cbse">
+          <h2>CBSE</h2>
+          <p>Central Board of Secondary Education</p>
+          <button onclick="showDetails('cbse')">Learn More</button>
+          <button class="download-btn" onclick="downloadResources('cbse')">
+            Download Resources
+          </button>
+        </div>
+
+        <!-- Card for GSEB -->
+        <div class="card" id="gseb">
+          <h2>GSEB</h2>
+          <p>Gujarat Secondary and Higher Secondary Education Board</p>
+          <button onclick="showDetails('gseb')">Learn More</button>
+          <button class="download-btn" onclick="downloadResources('gseb')">
+            Download Resources
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 CBSE & GSEB Resources. All rights reserved.</p>
+    </footer>
+
+    <script src="boards.js"></script>
+  </body>
+</html>

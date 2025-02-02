@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .author-details {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .author-details h2 {
+            color: #ccc;
+        }
+
+        .author-details p {
+            color: #ddd;
+        }
+
+        .author-details .info {
+            color: #bbb;
+        }
+
+        .publish-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .publish-btn:hover {
+            background-color: #45a049;
+        }
+
+        .book-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .book-table th, .book-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #444;
+        }
+
+        .book-table th {
+            background-color: #333;
+            color: white;
+        }
+
+        .book-table tr:nth-child(even) {
+            background-color: #222;
+        }
+
+        .book-table tr:hover {
+            background-color: #444;
+        }
+
+        .book-table td {
+            color: #ddd;
+        }
+
+        .book-table .date {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Author Profile</h1>
+
+    <div class="author-details">
+        <h2 id="authorName">Author: Loading...</h2>
+        <p><strong>Bio:</strong> <span id="authorBio">Loading...</span></p>
+        <p><strong>Email:</strong> <span id="authorEmail">Loading...</span></p>
+        <p><strong>Website:</strong> <span id="authorWebsite">Loading...</span></p>
+
+        <!-- Publish Book Button -->
+        <a href="publish.html" class="publish-btn">Publish Book</a>
+    </div>
+
+    <h2>Published Books</h2>
+
+    <table class="book-table">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Description</th>
+                <th>Genre</th>
+                <th>Published Date</th>
+            </tr>
+        </thead>
+        <tbody id="bookTableBody">
+            <!-- Books will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAuthorDetails();
+            loadBooks();
+        });
+
+        // Function to load author details dynamically from localStorage
+        function loadAuthorDetails() {
+            const authorData = JSON.parse(localStorage.getItem('authorData')) || {};
+
+            // Set author details in the profile
+            document.getElementById('authorName').textContent = `Author: ${authorData.name || 'Unknown'}`;
+            document.getElementById('authorBio').textContent = authorData.bio || 'No bio available.';
+            document.getElementById('authorEmail').textContent = authorData.email || 'No email available.';
+            document.getElementById('authorWebsite').textContent = authorData.website || 'No website available.';
+        }
+
+        // Function to load books and display them in the table
+        function loadBooks() {
+            let books = JSON.parse(localStorage.getItem('publishedBooks')) || [];
+
+            // If there are no books, show a message
+            if (books.length === 0) {
+                document.getElementById('bookTableBody').innerHTML = '<tr><td colspan="4">No books published yet.</td></tr>';
+                return;
+            }
+
+            // Clear previous books
+            const bookTableBody = document.getElementById('bookTableBody');
+            bookTableBody.innerHTML = '';
+
+            // Loop through each book and create a table row
+            books.forEach(book => {
+                const bookRow = document.createElement('tr');
+                bookRow.innerHTML = `
+                    <td>${book.title}</td>
+                    <td>${book.description}</td>
+                    <td>${book.genre}</td>
+                    <td class="date">${book.publishedDate}</td>
+                `;
+                bookTableBody.appendChild(bookRow);
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -100,17 +100,51 @@
                 strengthMessage.textContent = 'Strong password';
             }
         }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 516c143 (last commit)
         function toggleFields() {
             let role = document.getElementById('role').value;
             document.getElementById('booksPublished').style.display = role === 'author' ? 'block' : 'none';
             document.getElementById('publishingHouse').style.display = role === 'publisher' ? 'block' : 'none';
         }
+<<<<<<< HEAD
 
         function redirectToLogin(event) {
             event.preventDefault();
             window.location.href = 'login_final.html';
         }
     </script>
+=======
+    
+        function redirectToLogin(event) {
+            event.preventDefault();
+    
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+            const booksPublished = document.getElementById('booksPublished').value;
+            const publishingHouse = document.getElementById('publishingHouse').value;
+    
+            // Store data in localStorage
+            localStorage.setItem('authorData', JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+                role: role,
+                booksPublished: role === 'author' ? booksPublished : null,
+                publishingHouse: role === 'publisher' ? publishingHouse : null
+            }));
+    
+            // Redirect to login page
+            window.location.href = 'login_author.html';
+        }
+    </script>
+    
+>>>>>>> 516c143 (last commit)
 </body>
 </html>

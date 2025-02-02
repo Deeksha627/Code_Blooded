@@ -85,15 +85,22 @@
             <input type="text" id="verificationCode" placeholder="Enter verification code" required>
             <button onclick="verifyCode()">Verify Code</button>
         </div>
+<<<<<<< HEAD
         <span class="back-to-login"><a href="login_page_1.1.html">Back to Login</a></span>
+=======
+        <span class="back-to-login"><a href="login_2.0.html">Back to Login</a></span>
+>>>>>>> 516c143 (last commit)
         <div id="errorMessage" class="error-message" style="display:none;"></div>
     </div>
 
     <script>
+<<<<<<< HEAD
         const users = [
             { username: "user1", password: "password123", email: "user1@example.com" },
             { username: "user2", password: "password456", email: "user2@example.com" },
         ];
+=======
+>>>>>>> 516c143 (last commit)
 
         let verificationCode = "";
         let currentUser = null;
@@ -107,7 +114,11 @@
 
             if (!currentUser) {
                 // Display invalid email message
+<<<<<<< HEAD
                 document.getElementById('errorMessage').textContent = "Invalid email address!";
+=======
+                document.getElementById('errorMessage').textContent = "Email address not registered!";
+>>>>>>> 516c143 (last commit)
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
@@ -130,9 +141,17 @@
             if (enteredCode === verificationCode.toString()) {
                 const newPassword = prompt('Enter your new password:');
                 if (newPassword) {
+<<<<<<< HEAD
                     currentUser.password = newPassword;
                     alert('Password successfully changed!');
                     window.location.href = "login_page_1.1.html"; // Redirect to login page
+=======
+                    // Update password in the "users" array and save it to localStorage
+                    currentUser.password = newPassword;
+                    localStorage.setItem('users', JSON.stringify(users)); // Save updated users to localStorage
+                    alert('Password successfully changed!');
+                    window.location.href = "login_2.0.html"; // Redirect to login page
+>>>>>>> 516c143 (last commit)
                 }
             } else {
                 alert('Invalid verification code!');

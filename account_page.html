@@ -126,7 +126,11 @@
         </form>
 
         <!-- Back to Login Page button -->
+<<<<<<< HEAD
         <button class="back-to-login" onclick="window.location.href='login_page_1.1.html'">Back to Login Page</button>
+=======
+        <button class="back-to-login" onclick="window.location.href='login_2.0.html'">Back to Login Page</button>
+>>>>>>> 516c143 (last commit)
 
         <div id="errorMessage" class="error-message" style="display:none;"></div>
         <div id="passwordStrengthMessage" class="password-strength" style="display:none;"></div>
@@ -196,16 +200,23 @@
 
             users.push(newUser);
 
+<<<<<<< HEAD
             // Clear form fields
             document.getElementById('createAccountForm').reset();
 
+=======
+>>>>>>> 516c143 (last commit)
             // Store user data in localStorage
             localStorage.setItem('userData', JSON.stringify(user));
 
             
             // Success message and redirect to login page
             alert('Account created successfully!');
+<<<<<<< HEAD
             window.location.href = 'login_page_1.1.html'; // Redirect to login page
+=======
+            window.location.href = 'login_2.0.html'; // Redirect to login page
+>>>>>>> 516c143 (last commit)
         }
 
         // Function to check password strength as user types

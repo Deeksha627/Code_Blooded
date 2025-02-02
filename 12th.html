@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12t Subjects</title>
+    <link rel="stylesheet" href="12th.css" />
+  </head>
+  <body>
+    <header>
+      <h1>12th board</h1>
+      <!-- <p>Explore resources for Physics, Chemistry, and Maths.</p> -->
+    </header>
+
+    <main>
+      <div class="card-container">
+        <!-- Card for Physics -->
+        <div class="card" id="physics">
+          <h2>Physics</h2>
+          <p>Explore concepts, formulas, and PYQs for Physics.</p>
+          <button onclick="showDetails('physics')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('physics')">
+            Download Year-wise PYQs
+          </button>
+        </div>
+
+        <!-- Card for Chemistry -->
+        <div class="card" id="chemistry">
+          <h2>Chemistry</h2>
+          <p>Explore organic, inorganic, and physical chemistry PYQs.</p>
+          <button onclick="showDetails('chemistry')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('chemistry')">
+            Download Year-wise PYQs
+          </button>
+        </div>
+
+        <!-- Card for Maths -->
+        <div class="card" id="maths">
+          <h2>Maths</h2>
+          <p>Explore calculus, algebra, and geometry PYQs.</p>
+          <button onclick="showDetails('maths')">Learn More</button>
+          <button class="download-btn" onclick="downloadPYQs('maths')">
+            Download Year-wise PYQs
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 JEE Preparation. All rights reserved.</p>
+    </footer>
+
+    <script src="12th.js"></script>
+  </body>
+</html>
